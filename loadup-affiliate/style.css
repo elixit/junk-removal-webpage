@@ -1,0 +1,243 @@
+/* styles.css */
+/* ===== CYBERPUNK CORE STYLES ===== */
+:root {
+    --neon-blue: #00f3ff;
+    --neon-purple: #bc00ff;
+    --dark-void: #000010;
+    --cyber-bg: rgba(16, 16, 32, 0.95);
+    --matrix-green: #00ff88;
+    --hud-orange: #ff7b00;
+  }
+  
+  body {
+    background: var(--dark-void);
+    color: var(--neon-blue);
+    font-family: 'Orbitron', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+  
+  /* ===== CYBER GRID BACKGROUND ===== */
+  .cyber-grid {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      linear-gradient(rgba(0, 243, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 243, 255, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: -1;
+  }
+  
+  /* ===== GLITCH EFFECT ===== */
+  .glitch {
+    position: relative;
+    font-size: 4rem;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 2rem 0;
+    animation: glitch 3s infinite;
+  }
+  
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+  }
+  
+  .glitch::before {
+    color: var(--neon-purple);
+    animation: glitch-1 2s infinite;
+  }
+  
+  .glitch::after {
+    color: var(--matrix-green);
+    animation: glitch-2 1.5s infinite;
+  }
+  
+  @keyframes glitch {
+    0% { text-shadow: 2px 0 var(--neon-purple), -2px 0 var(--matrix-green); }
+    2% { text-shadow: 5px 0 var(--neon-purple), -5px 0 var(--matrix-green); }
+    4% { text-shadow: 2px 0 var(--matrix-green), -5px 0 var(--neon-purple); }
+    6% { text-shadow: -3px 0 var(--neon-purple), 3px 0 var(--matrix-green); }
+    100% { text-shadow: 2px 0 var(--neon-purple), -2px 0 var(--matrix-green); }
+  }
+  
+  /* ===== SERVICE LOCATIONS HEADER ===== */
+  .neon-locations {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 2rem;
+    text-align: center;
+    color: var(--hud-orange);
+    text-shadow: 0 0 10px rgba(255, 123, 0, 0.5);
+    letter-spacing: 0.2em;
+    margin: 1.5rem 0;
+    position: relative;
+    animation: neon-pulse 2s ease-in-out infinite;
+  }
+  
+  @keyframes neon-pulse {
+    0%, 100% { 
+      text-shadow: 0 0 10px var(--hud-orange),
+                   0 0 20px rgba(255, 123, 0, 0.3);
+    }
+    50% { 
+      text-shadow: 0 0 15px var(--hud-orange),
+                   0 0 30px rgba(255, 123, 0, 0.5),
+                   0 0 40px rgba(255, 123, 0, 0.2);
+    }
+  }
+  
+  /* ===== TRUST GRID ===== */
+  .trust-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 3rem auto;
+    max-width: 800px;
+  }
+  
+  .trust-node {
+    position: relative;
+    background: var(--cyber-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--neon-blue);
+    backdrop-filter: blur(5px);
+    text-align: center;
+  }
+  
+  .node-core {
+    width: 20px;
+    height: 20px;
+    background: var(--neon-blue);
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    box-shadow: 0 0 15px var(--neon-blue);
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
+  
+  /* ===== LOADUP IFRAME FIXES ===== */
+  .holo-frame {
+    position: relative;
+    padding: 3px;
+    border-radius: 10px;
+    background: linear-gradient(
+      45deg,
+      var(--neon-blue),
+      var(--neon-purple),
+      var(--neon-blue)
+    );
+    background-size: 200% 200%;
+    animation: holo-glow 4s linear infinite;
+    max-width: 800px;
+    margin: 2rem auto;
+  }
+  
+  #quote-form {
+    min-height: 1000px !important;
+    width: 100%;
+    background: var(--cyber-bg);
+    border-radius: 8px;
+    overflow: visible !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  
+  #quote-form iframe {
+    height: 1000px !important;
+    width: 100% !important;
+    overflow-y: scroll !important;
+    pointer-events: auto !important;
+    border: none !important;
+    background: transparent !important;
+  }
+  
+  /* ===== CYBER CTA ===== */
+  .cyber-cta {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 5px;
+    filter: drop-shadow(0 0 10px var(--neon-blue));
+    z-index: 1000;
+  }
+  
+  .cta-main {
+    padding: 1rem 2rem;
+    background: var(--cyber-bg);
+    color: var(--neon-blue);
+    border: 2px solid var(--neon-blue);
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  
+  .cta-main:hover {
+    background: rgba(0, 243, 255, 0.1);
+    box-shadow: 0 0 20px var(--neon-blue);
+  }
+  
+  .cta-glitch-layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      45deg,
+      var(--neon-purple),
+      var(--matrix-green)
+    );
+    opacity: 0.3;
+    animation: cta-glitch 1s infinite;
+  }
+  
+  @keyframes cta-glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-5px, 5px); }
+    40% { transform: translate(5px, -5px); }
+    60% { transform: translate(-5px, -5px); }
+    80% { transform: translate(5px, 5px); }
+    100% { transform: translate(0); }
+  }
+  
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    .glitch {
+      font-size: 2.5rem;
+    }
+    
+    .neon-locations {
+      font-size: 1.5rem;
+    }
+    
+    #quote-form {
+      min-height: 1200px !important;
+    }
+    
+    #quote-form iframe {
+      height: 1200px !important;
+    }
+    
+    .trust-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .cyber-cta {
+      bottom: 20px;
+      right: 20px;
+    }
+  }
