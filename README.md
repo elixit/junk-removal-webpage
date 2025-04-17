@@ -22,7 +22,7 @@ Visitors can learn about LoadUp’s services and click through to schedule junk 
 
 ## 🔗 Live Demo
 
-👉 [View the Live Site](https://your-username.github.io/your-repo-name/)  
+
 📍 Target Location: Houston, TX
 
 ---
