@@ -22,8 +22,7 @@ Visitors can learn about LoadUp’s services and click through to schedule junk 
 
 ## 🔗 Live Demo
 
-
-📍 Target Location: Houston, TX
+[View the Live Site](https://elixit.github.io/junk-removal-webpage/))  📍 Target Location: Houston, TX
 
 ---
 
