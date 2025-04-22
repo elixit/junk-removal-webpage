@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize LoadUp Partner
     const initLoadUp = () => {
         if (typeof LoadUp !== 'undefined') {
-            LoadUp.setPartner('YOURDOMAIN.com');
+            LoadUp.setPartner('https://junk-removal-webpage-lt4p.vercel.app/');
             const iframe = document.querySelector('#quote-form iframe');
             if (iframe) {
                 // Fix iframe styling
